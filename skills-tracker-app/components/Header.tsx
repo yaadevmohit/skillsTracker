@@ -3,10 +3,10 @@
 import { useState } from "react";
 import { Button } from "./Button";
 import { Plus, Menu, X } from "lucide-react";
+import { AuthMobileButton } from "./AuthMobileButton";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
-
   return (
     <header className="bg-white text-black px-6 py-3 mx-auto w-full border-b border-neutral-100 relative">
       <nav className="flex items-center justify-between max-w-6xl mx-auto">
@@ -59,18 +59,8 @@ export default function Header() {
                     ${menuOpen ? "max-h-40 opacity-100" : "max-h-0 opacity-0 border-b-0 shadow-none"}`}
       >
         <div className="px-6 py-4 flex flex-col gap-3">
-          <button
-            className="text-sm font-medium text-neutral-600 hover:text-black hover:bg-gray-100
-                       px-3 py-2 rounded-xl transition-colors cursor-pointer border-1"
-          >
-            Log in
-          </button>
-          <button
-            className="text-sm font-medium text-neutral-600 hover:text-black hover:bg-gray-100
-                       px-3 py-2 rounded-xl transition-colors cursor-pointer border-1"
-          >
-            Sign up
-          </button>
+          <AuthMobileButton>Log in</AuthMobileButton>
+          <AuthMobileButton>Sign up</AuthMobileButton>
         </div>
       </div>
     </header>
