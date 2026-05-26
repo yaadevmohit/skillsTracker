@@ -5,7 +5,7 @@ export default function UserGreeting() {
         Good afternoon, Jordan
       </h1>
       <p className="ml-1 mt-1 text-sm tracking-wide text-gray-500">
-        You've not practiced anything today brother what da helly
+        You've not practiced anything today brother
       </p>
     </div>
   )
