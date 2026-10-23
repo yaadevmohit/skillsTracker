@@ -2,27 +2,30 @@
 // Values represent practice intensity (0 = none, 1-4 = increasing intensity)
 const HEATMAP_DATA: number[][] = [
   // Older weeks (mostly empty/light)
-  [0,0,0,0,0,0,0],
-  [0,0,1,0,0,0,0],
-  [0,0,0,0,1,0,0],
-  [0,1,0,0,0,0,0],
-  [0,0,0,1,0,0,0],
-  [0,0,0,0,0,1,0],
-  [1,0,0,0,0,0,0],
-  [0,0,1,0,0,0,1],
-  [0,0,0,0,1,0,0],
-  [0,1,0,1,0,0,0],
-  [1,0,0,0,1,0,1],
+  [0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 1, 0, 0, 0, 0],
+  [0, 0, 0, 0, 1, 0, 0],
+  [0, 1, 0, 0, 0, 0, 0],
+  [0, 0, 0, 1, 0, 0, 0],
+  [0, 0, 0, 0, 0, 1, 0],
+  [1, 0, 0, 0, 0, 0, 0],
+  [0, 0, 1, 0, 0, 0, 1],
+  [0, 0, 0, 0, 1, 0, 0],
+  [0, 1, 0, 1, 0, 0, 0],
+  [1, 0, 0, 0, 1, 0, 1],
   // Getting more active
-  [0,1,1,0,1,0,0],
-  [1,0,1,1,0,1,0],
-  [1,1,0,1,1,0,1],
-  [2,1,2,1,1,2,1],
+  [0, 1, 1, 0, 1, 0, 0],
+  [1, 0, 1, 1, 0, 1, 0],
+  [1, 1, 0, 1, 1, 0, 1],
+  [2, 1, 2, 1, 1, 2, 1],
   // Recent weeks (most active)
-  [2,1,2,3,2,3,2],
-  [3,2,3,2,3,4,3],
-  [3,4,3,4,3,4,4],
+  [2, 1, 2, 3, 2, 3, 2],
+  [3, 2, 3, 2, 3, 4, 3],
+  [3, 4, 3, 4, 3, 4, 5],
 ];
+
+
+
 
 const INTENSITY_CLASSES: Record<number, string> = {
   0: "bg-neutral-100",
@@ -43,14 +46,14 @@ export default function Heatmap() {
 
         {/* Grid: 18 columns × 7 rows */}
         <div className="overflow-x-auto pb-2">
-          <div className="flex gap-[5px] min-w-[340px] justify-between">
+          <div className="flex min-w-85 justify-between">
             {HEATMAP_DATA.map((week, wIdx) => (
-              <div key={wIdx} className="flex flex-col gap-[5px]">
+              <div key={wIdx} className="flex flex-col gap-0.5">
                 {week.map((intensity, dIdx) => (
                   <div
                     key={dIdx}
-                    className={`w-[17px] h-[17px] rounded-[3px] transition-colors
-                      ${INTENSITY_CLASSES[intensity] ?? "bg-neutral-100"}`}
+                    className={`w-9 h-9 rounded-[3px] transition-colors
+                      ${intensity > 4 ? INTENSITY_CLASSES[4] : INTENSITY_CLASSES[intensity] ?? "bg-neutral-100"}`}
                   />
                 ))}
               </div>
@@ -62,11 +65,11 @@ export default function Heatmap() {
       {/* Legend */}
       <div className="flex items-center justify-end gap-1.5 text-[11px] font-bold text-neutral-400 pt-4 border-t border-neutral-100 mt-6 select-none">
         <span>Less</span>
-        <div className="w-3 h-3 rounded-[2px] bg-neutral-100" />
-        <div className="w-3 h-3 rounded-[2px] bg-emerald-100" />
-        <div className="w-3 h-3 rounded-[2px] bg-emerald-300" />
-        <div className="w-3 h-3 rounded-[2px] bg-emerald-500" />
-        <div className="w-3 h-3 rounded-[2px] bg-emerald-700" />
+        <div className="w-3 h-3 rounded-xs bg-neutral-100" />
+        <div className="w-3 h-3 rounded-xs bg-emerald-100" />
+        <div className="w-3 h-3 rounded-xs bg-emerald-300" />
+        <div className="w-3 h-3 rounded-xs bg-emerald-500" />
+        <div className="w-3 h-3 rounded-xs bg-emerald-700" />
         <span>More</span>
       </div>
     </div>

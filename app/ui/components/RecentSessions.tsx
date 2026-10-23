@@ -66,7 +66,7 @@ export default function RecentSessions() {
                 <span className="font-bold text-neutral-800 mr-2 text-sm sm:text-base">
                   {session.skill}
                 </span>
-                <p className="text-neutral-500 text-sm mt-0.5 break-words line-clamp-2">
+                <p className="text-neutral-500 text-sm mt-0.5 wrap-break-word line-clamp-2">
                   {session.notes}
                 </p>
               </div>

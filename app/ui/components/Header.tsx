@@ -1,8 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "./Button";
-import { Plus, Menu, X } from "lucide-react";
+import { Plus, Menu, X, MoveRight} from "lucide-react";
 import { AuthMobileButton } from "./AuthMobileButton";
 
 export default function Header() {
@@ -25,7 +24,6 @@ export default function Header() {
             <Plus size={16} strokeWidth={2.5} className="transition-transform duration-300 group-hover:rotate-90" />
             Log Session
           </button>
-
           {/* Desktop: Login & Sign Up visible inline */}
           <div className="hidden md:flex flex-row gap-2 border-l border-neutral-200 pl-2">
             <button
@@ -34,7 +32,24 @@ export default function Header() {
             >
               Log in
             </button>
-            <Button href="/">Sign up</Button>
+          <button
+              className="group flex gap-2 items-center 
+                       bg-black w-fit mx-auto 
+                       text-white px-4 py-3 rounded-2xl 
+                       cursor-pointer
+                       hover:bg-black/80 
+                       text-sm
+                       font-bold
+                       "
+            >
+              Sign up
+              <div className="relative h-5 w-5 text-sm font-bold overflow-hidden">
+                <div className="flex flex-col transition-transform duration-300 ease-in-out translate-y-0.75 group-hover:-translate-y-3.25 my-auto">
+                  <MoveRight size={16} strokeWidth={2.5} />
+                  <MoveRight size={16} strokeWidth={2.5} />
+                </div>
+              </div>
+          </button>
           </div>
 
           {/* Mobile: Hamburger toggle */}
